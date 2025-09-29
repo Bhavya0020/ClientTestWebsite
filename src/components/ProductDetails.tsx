@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Star, Truck, Heart, Minus, Plus, ShieldCheck } from "lucide-react";
+import { Star, Truck, Heart, Minus, Plus, ShieldCheck, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -24,7 +24,9 @@ const ProductDetails = () => {
     <div className="space-y-6">
       {/* Product title and rating */}
       <header>
-        <h1 className="text-3xl font-bold text-foreground mb-2">Nike Air Force 1 '07</h1>
+        <h1 className="text-3xl font-bold text-foreground mb-2">
+          Nike Air Force 1 '07 – Discount Running Shoes
+        </h1>
         <div className="flex items-center space-x-2 mb-4">
           <div className="flex items-center">
             {[1, 2, 3, 4, 5].map((star) => (
@@ -34,14 +36,28 @@ const ProductDetails = () => {
               />
             ))}
           </div>
-          <span className="text-sm text-muted-foreground" itemProp="reviewCount">(0 Reviews)</span>
+          <span className="text-sm text-muted-foreground" itemProp="reviewCount">(12 Reviews)</span>
           <a href="#reviews" className="text-sm text-primary hover:underline">
-            Write the First Review
+            Write a Review
           </a>
         </div>
-        <p className="text-3xl font-bold text-price mb-2" itemProp="price">$170.00</p>
+        <div className="flex items-center space-x-2 mb-2">
+          <p className="text-3xl font-bold text-price" itemProp="price">
+            $149.00
+          </p>
+          <span className="line-through text-muted-foreground">$170.00</span>
+          <Badge variant="secondary" className="bg-red-500 text-white text-sm">
+            12% OFF
+          </Badge>
+        </div>
         <p className="text-sm font-semibold text-green-600" itemProp="availability">In Stock</p>
       </header>
+
+      {/* Promotions */}
+      <div className="flex items-center space-x-2 text-sm text-primary font-medium">
+        <Tag className="h-4 w-4 text-primary" />
+        <span>Buy One Get One 50% Off – Limited Time Clearance Sale!</span>
+      </div>
 
       {/* Trust Signals */}
       <div className="flex items-center space-x-2 text-sm text-muted-foreground">
@@ -133,7 +149,21 @@ const ProductDetails = () => {
         <Badge variant="outline">
           Easy Returns
         </Badge>
+        <Badge variant="outline">
+          Clearance Bargain
+        </Badge>
       </div>
+
+      {/* Budget-friendly section */}
+      <section>
+        <h3 className="text-lg font-semibold mb-2">Why Choose These Shoes?</h3>
+        <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+          <li>Top-rated affordable running shoes online</li>
+          <li>Great balance of comfort and durability at a discount price</li>
+          <li>Part of our "Top 10 Cheapest Running Shoes" collection</li>
+          <li>Ideal for budget-conscious athletes looking for bargains</li>
+        </ul>
+      </section>
     </div>
   );
 };
